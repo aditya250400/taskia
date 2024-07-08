@@ -1,7 +1,7 @@
 class User {
 
     constructor() {
-        
+        this.users = this.getUsers() || [];
     }
 
     saveUser(userData) {
@@ -9,6 +9,30 @@ class User {
             id: Date.now(),
             ...userData
         };
-        console.log(newUser);
+
+        this.users.push(newUser);
+        localStorage.setItem('users', JSON.stringify(this.users));
+
+        return {
+            success: true,
+        }
+    }
+
+    signInUser(usernameByInput) {
+        const userExists = this.users.some(user => user.username.toLowerCase() === usernameByInput.toLowerCase());
+
+        if(userExists) {
+            return {
+                success: true,
+                username,
+            }
+
+        } else {
+            return {success: false, message: 'Username not found'};
+        }
+    }
+
+    getUsers() {
+        return JSON.parse(localStorage.getItem('users')) || [];
     }
 }
