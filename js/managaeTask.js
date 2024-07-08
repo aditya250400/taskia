@@ -25,10 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const taskWrapperEmpty = document.getElementById("taskWrapperEmpty");
 
   function displayAllTasks(tasks = existingtasks) {
-    if (existingtasks.length === 0) {
+    if (tasks.length === 0) {
       taskWrapper.className = "hidden";
+      taskWrapperEmpty.className = "flex justify-center items-center h-[420px] mx-auto";
     } else {
-      taskWrapper.innerHTML = "";
+        taskWrapper.innerHTML = "";
       taskWrapperEmpty.className = "hidden";
 
       tasks.forEach((task) => {
@@ -94,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
             <div class="flex flex-row items-center gap-x-3">
-                <a href="#"
+                <a href="#" id=deleteTask-${task.id}
                     class="my-auto font-semibold text-taskia-red border border-taskia-red p-[12px_20px] h-12 rounded-full">Delete</a>
                 ${
                   task.isComplete
@@ -121,6 +122,19 @@ document.addEventListener("DOMContentLoaded", () => {
             const updateTasks = myTasks.getTasks();
             displayAllTasks(updateTasks);
           });
+
+        itemTask
+          .querySelector(`#deleteTask-${task.id}`)
+          .addEventListener("click", (e) => {
+            e.preventDefault();
+            myTasks.deleteTask(task.id);
+
+            const updateTasks = myTasks.getTasks();
+            displayAllTasks(updateTasks);
+          });
+
+
+
       });
     }
   }
