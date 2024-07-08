@@ -5,17 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     taskForm.addEventListener('submit', (e) => {
         e.preventDefault();
-
+        const date = new Date();
         const taskData = {
             taskName: document.getElementById('taskName').value, 
-            taskPrioriy: document.getElementById('taskPriority').value, 
+            taskPriority: document.getElementById('taskPriority').value, 
+            createdAt: date.toLocaleDateString(),
         };
 
         const result = taskManager.saveTask(taskData);
 
         if(result.success) {
             alert('Berhasil di simpan');
-            // return window.location.href = '../signin.html';
+            return window.location.href = '../tasks.html';
         } else {
             console.log('Proses simpan data gagal');
             alert('Proses simpan data gagal');
