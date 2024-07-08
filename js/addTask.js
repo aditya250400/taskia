@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if(result.success) {
             alert('Berhasil di simpan');
-            return window.location.href = '../tasks.html';
+            return window.location.href = '../index.html';
         } else {
             console.log('Proses simpan data gagal');
             alert('Proses simpan data gagal');

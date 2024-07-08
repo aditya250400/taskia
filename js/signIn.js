@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if(result.success) {
             localStorage.setItem('usernameLoggedIn', username);
-            return window.location.href = '../tasks.html';
+            return window.location.href = '../index.html';
         } else {
             alert(result.message);
         }
