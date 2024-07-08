@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if(result.success) {
             alert('Proses simpan data berhasil');
-            return window.location.href = '../signin.html';
+            return window.location.href = '../index.html';
         } else {
             console.log('Proses simpan data gagal');
             alert('Proses simpan data gagal');
