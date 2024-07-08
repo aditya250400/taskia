@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if(result.success) {
             alert('Berhasil di simpan');
-            return window.location.href = '../index.html';
+            return window.location.href = 'https://aditya250400.github.io/taskia/';
         } else {
             console.log('Proses simpan data gagal');
             alert('Proses simpan data gagal');
